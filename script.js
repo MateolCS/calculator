@@ -4,10 +4,10 @@ let clear = document.querySelector('.clear')
 let remove = document.querySelector('.delete')
 let specials = document.querySelectorAll('.btn')
 
-var numberOne = ""
+let numberOne = ""
 let numberTwo = ""
 let operator = ''
-
+let placeholder = 1
 displayResult.innerText = ""
 
 
@@ -20,16 +20,26 @@ buttons.forEach(button =>{
 
 specials.forEach(special =>{
     special.addEventListener('click', ()=>{
-
+        if(placeholder == 1){
+            numberOne = displayResult.innerText
+            placeholder+=1
+        }else{
+            numberTwo = displayResult.innerText
+            placeholder -=1
+        }
+        displayResult.innerText = special.innerText
     })
 })
 
 clear.addEventListener('click', ()=>{
-
+    displayResult.innerText = ""
+    numberOne = 0
+    numberTwo = 0
+    placeholder = 1
 })
 
 remove.addEventListener('click', ()=>{
-
+    displayResult.innerText = displayResult.innerText.slice(0,-1)
 })
 
 

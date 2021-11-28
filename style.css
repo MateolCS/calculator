@@ -17,6 +17,10 @@ button{
     text-transform: uppercase;
 }
 
+.multiply{
+    text-transform: lowercase;
+}
+
 .main-container{
     background-color: #fdfcdc;
     margin-top: 5rem;
