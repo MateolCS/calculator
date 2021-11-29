@@ -6,8 +6,9 @@ let specials = document.querySelectorAll('.btn')
 
 let numberOne = ""
 let numberTwo = ""
-let operator = ''
+let operator = ""
 let placeholder = 1
+let message = "XDDDDDD"
 displayResult.innerText = ""
 
 
@@ -23,11 +24,18 @@ specials.forEach(special =>{
         if(placeholder == 1){
             numberOne = displayResult.innerText
             placeholder+=1
-        }else{
+            displayResult.innerText = ""
+            operator = special.innerText
+        }else if(placeholder == 2){
             numberTwo = displayResult.innerText
             placeholder -=1
+            numberOne = String(calculate(operator, numberOne, numberTwo))
+            displayResult.innerText = numberOne
+            numberTwo = ""
+            operator = special.innerText
         }
-        displayResult.innerText = special.innerText
+        
+        
     })
 })
 
@@ -36,6 +44,7 @@ clear.addEventListener('click', ()=>{
     numberOne = 0
     numberTwo = 0
     placeholder = 1
+    operator = ""
 })
 
 remove.addEventListener('click', ()=>{
@@ -61,4 +70,26 @@ let divide = function(numberOne, numberTwo){
 
 let multiply = function(numberOne,  numberTwo){
     return numberOne * numberTwo
+}
+
+let calculate = function(operator, numberOne, numberTwo){
+    let num1 = Number(numberOne)
+    let num2 = Number(numberTwo)
+    console.log(num2)
+
+    switch(operator){
+        case "+":
+            return add(num1, num2)
+        case "-":
+            return substract(num1, num2)
+        case "÷":
+            if(num2 == 0){
+                return message
+            }else{
+                return divide(num1, num2)
+            }
+        case "×":
+            return multiply(num1, num2)
+    }
+
 }

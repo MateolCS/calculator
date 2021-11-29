@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 *{
     margin: 0;
@@ -72,10 +72,19 @@ button{
 .special-buttons button{
     background-color: #F07167;
     color: #fff;
+    font-weight: bold;
     padding: 0.5rem;
     width: 45%;
     border: 2px solid #F7A58F;
     margin-bottom: 1rem;
     margin-top: 2rem;
+}
+
+.buttons button.btn{
+    background-color: #e07a5f;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
